@@ -1,7 +1,8 @@
 from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
-from pptx.util import Inches, Emu
+# from pptx.enum.dml import MSO_FILL
+from pptx.util import Inches
 import random
 
 class PPT:
@@ -28,6 +29,9 @@ class PPT:
             "height": (0, shape_max_size[1]), 
             "rotation": (0, 360), 
         }
+
+        # self.fill_types = dict((member.name, member.value) for member in MSO_FILL.__members__)
+        # print(self.fill_types)
     
     def add_blank_slide(self):
         self.prs.slides.add_slide(self.prs.slide_layouts.get_by_name("Blank"))
@@ -44,6 +48,8 @@ class PPT:
         for property, value_range in self.base_shape_visual_property_range.items():
             setattr(shape, property, random.randint(*value_range))
 
+        shape.fill.solid()
+        shape.fill.fore_color.rgb = RGBColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         
         return shape
 
