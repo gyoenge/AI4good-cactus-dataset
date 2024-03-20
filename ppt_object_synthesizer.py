@@ -1,4 +1,5 @@
 from pptx import Presentation
+from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.util import Inches, Emu
 import random
@@ -21,11 +22,11 @@ class PPT:
 
         shape_max_size = (Inches(4), Inches(4))
         self.base_shape_visual_property_range = {
-            "left": (0, self.prs.slide_width.emu - shape_max_size[0].emu), 
-            "top": (0, self.prs.slide_height.emu - shape_max_size[1].emu), 
-            "width": (0, shape_max_size[0].emu), 
-            "height": (0, shape_max_size[1].emu), 
-            "rotation": (0, 360.), 
+            "left": (0, self.prs.slide_width - shape_max_size[0]), 
+            "top": (0, self.prs.slide_height - shape_max_size[1]), 
+            "width": (0, shape_max_size[0]), 
+            "height": (0, shape_max_size[1]), 
+            "rotation": (0, 360), 
         }
     
     def add_blank_slide(self):
@@ -40,11 +41,9 @@ class PPT:
 
         shape = self.prs.slides[-1].shapes[-1]
 
-        shape.left = Emu(random.uniform(*self.base_shape_visual_property_range["left"]))
-        shape.top = Emu(random.uniform(*self.base_shape_visual_property_range["top"]))
-        shape.width = Emu(random.uniform(*self.base_shape_visual_property_range["width"]))
-        shape.height = Emu(random.uniform(*self.base_shape_visual_property_range["height"]))
-        shape.rotation = random.uniform(*self.base_shape_visual_property_range["rotation"])
+        for property, value_range in self.base_shape_visual_property_range.items():
+            setattr(shape, property, random.randint(*value_range))
+
         
         return shape
 
