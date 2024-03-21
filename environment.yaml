@@ -14,6 +14,8 @@ dependencies:
   - certifi=2024.2.2=py311haa95532_0
   - cffi=1.16.0=py311h2bbff1b_0
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
+  - click=8.1.7=py311haa95532_0
+  - colorama=0.4.6=py311haa95532_0
   - cryptography=42.0.5=py311h89fc84f_0
   - freetype=2.12.1=ha860e81_0
   - frozenlist=1.4.0=py311h2bbff1b_0
@@ -37,6 +39,7 @@ dependencies:
   - pysocks=1.7.1=py311haa95532_0
   - python=3.11.8=he1021f5_0
   - python-dateutil=2.8.2=pyhd3eb1b0_0
+  - python-dotenv=0.21.0=py311haa95532_0
   - requests=2.31.0=py311haa95532_1
   - s3transfer=0.7.0=py311haa95532_0
   - selenium=3.141.0=py311h2bbff1b_1000
