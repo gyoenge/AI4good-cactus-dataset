@@ -23,6 +23,10 @@ def add_custom_manipulator(cls:Shape):
                 self.line.dash_style = value
             case "left":
                 self.left = value
+            case "top":
+                self.top = value
+            case "width":
+                self.width = value
             case "height":
                 self.height = value
             case "rotation":
@@ -36,24 +40,27 @@ def add_custom_manipulator(cls:Shape):
                 self.line.width = value
 
     def randomize(self):
+        print(self.shape)
         random_properties = {
             # "shape_type": random.choices(
             #     [member.value for member in MSO_SHAPE.__members__], 
             #     [5 if member.name == "RECTANGLE" else 1 for member in MSO_SHAPE.__members__]
             # )[0], 
-            "line_type": random.choices(
+            "line_type": random.choice(
                 [member.value for member in MSO_LINE.__members__ if member.name != "DASH_STYLE_MIXED"], 
-                [5 if member.name == "SOLID" else 1 for member in [member for member in MSO_LINE.__members__ if member.name != "DASH_STYLE_MIXED"]]
-            )[0],
-            "left": Inches(random.uniform(0, 8)), 
-            "height": Inches(random.uniform(0, 6)),  
-            "rotation": random.randint(0, 360),  # k_modal_distribution([0, 90, 180, 270], [3, 1, 3, 1]), 
+            ),
+            "left": Inches(random.uniform(0.5, 6.5)), 
+            "top": Inches(random.uniform(0, 4)), 
+            "width": Inches(random.uniform(1, 3)), 
+            "height": Inches(random.uniform(1, 3)),  
+            "rotation": random.choice([0, 45, 90, 135, 180, 225, 270, 315]),  # random.randint(0, 360),  # k_modal_distribution([0, 90, 180, 270], [3, 1, 3, 1]), 
             "fill_fore_color": random_rgb_color(), 
             "line_color": random_rgb_color(), 
             "line_width": Pt(random.randint(0, 5)),
         }
         for property, value in random_properties.items():
             self.set(property, value)
+        setattr(cls, "properties", random_properties)
         return random_properties
 
     setattr(cls, "set", set)
@@ -78,6 +85,9 @@ class PPT:
         self.prs.core_properties.version = "0.0"
 
         self.shapes = dict((member.name, member.value) for member in MSO_SHAPE.__members__)
+        shape_white_list = ["CLOUD", "CROSS", "LEFT_ARROW", "UP_ARROW", "RIGHT_ARROW", "DOWN_ARROW" "MATH_PLUS", "MATH_NOT_EQUAL", "RECTANGLE", "SIMLEY_FACE", "TRAPEZOID"]
+        self.shapes = dict(shape for shape in self.shapes.items() if shape[0] in shape_white_list)
+
 
     def add_blank_slide(self):
         self.prs.slides.add_slide(self.prs.slide_layouts.get_by_name("Blank"))
@@ -90,6 +100,7 @@ class PPT:
         )
 
         shape = self.prs.slides[-1].shapes[-1]
+        setattr(shape, "shape", shape_type[0])
 
         property = shape.randomize()
         property["shape_type"] = shape_type[0]
