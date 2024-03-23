@@ -3,6 +3,9 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - aiohttp=3.9.3=py311h2bbff1b_0
+  - aiosignal=1.2.0=pyhd3eb1b0_0
+  - attrs=23.1.0=py311haa95532_0
   - beautifulsoup4=4.12.2=py311haa95532_0
   - boto3=1.29.1=py311haa95532_0
   - botocore=1.32.1=py311haa95532_0
@@ -12,8 +15,11 @@ dependencies:
   - certifi=2024.2.2=py311haa95532_0
   - cffi=1.16.0=py311h2bbff1b_0
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
+  - click=8.1.7=py311haa95532_0
+  - colorama=0.4.6=py311haa95532_0
   - cryptography=42.0.5=py311h89fc84f_0
   - freetype=2.12.1=ha860e81_0
+  - frozenlist=1.4.0=py311h2bbff1b_0
   - idna=3.4=py311haa95532_0
   - jmespath=1.0.1=py311haa95532_0
   - jpeg=9e=h2bbff1b_1
@@ -28,6 +34,7 @@ dependencies:
   - libxslt=1.1.37=h2bbff1b_1
   - lxml=4.9.3=py311h09808a7_0
   - lz4-c=1.9.4=h2bbff1b_0
+  - multidict=6.0.4=py311h2bbff1b_0
   - openjpeg=2.4.0=h4fc8c34_0
   - openssl=3.0.13=h2bbff1b_0
   - pillow=10.2.0=py311h2bbff1b_0
@@ -38,6 +45,7 @@ dependencies:
   - python=3.11.8=he1021f5_0
   - python-dateutil=2.8.2=pyhd3eb1b0_0
   - python-pptx=0.6.23=pyhd8ed1ab_0
+  - python-dotenv=0.21.0=py311haa95532_0
   - requests=2.31.0=py311haa95532_1
   - s3transfer=0.7.0=py311haa95532_0
   - selenium=3.141.0=py311h2bbff1b_1000
@@ -54,6 +62,7 @@ dependencies:
   - win_inet_pton=1.1.0=py311haa95532_0
   - xlsxwriter=3.1.1=py311haa95532_0
   - xz=5.4.6=h8cc25b3_0
+  - yarl=1.9.3=py311h2bbff1b_0
   - zlib=1.2.13=h8cc25b3_0
   - zstd=1.5.5=hd43e919_0
-prefix: C:\Users\user\anaconda3\envs\cactus_dataset
+prefix: C:\Users\User\anaconda3\envs\cactus_dataset
