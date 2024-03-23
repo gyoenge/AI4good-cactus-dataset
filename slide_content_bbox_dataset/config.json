@@ -1,0 +1,41 @@
+{
+  "COCO_CATEGORIES": [
+    { "id": 1, "name": "text" },
+    { "id": 2, "name": "natural_image" },
+    { "id": 3, "name": "diagram" },
+    { "id": 4, "name": "ppt_object" }
+  ],
+  "CONTENT_DIR": {
+    "text": {
+      "root": "../dataset/text_image",
+      "short": [
+        "../dataset/text_image/short_color",
+        "../dataset/text_image/short_grayscale"
+      ],
+      "line": [
+        "../dataset/text_image/line_color",
+        "../dataset/text_image/line_grayscale"
+      ],
+      "paragraph": [
+        "../dataset/text_image/paragraph_color",
+        "../dataset/text_image/paragraph_grayscale"
+      ]
+    },
+    "natural_image": ["../dataset/natural_image"],
+    "diagram": ["../dataset/diagram_clipart"]
+  },
+  "SLIDE_VARIANTS": {
+    "SLIDE_SIZE_PX": [1280, 960],
+    "SLIDE_BACKGROUND_IMG_DIR": "./background_image/"
+  },
+  "OUTPUT_DIR": {
+    "root": "./data/",
+    "IMAGES_DIR": "./data/images/",
+    "LABELS_DIR": "./data/labels/",
+    "OUTPUT_FILE": "./data/coco_annotations/annotation.json"
+  },
+  "RESULT_DIR": {
+    "YOLO_RESULTS_DIR": "./result/yolo_results",
+    "COCO_RESULTS_DIR": "./result/coco_results"
+  }
+}
