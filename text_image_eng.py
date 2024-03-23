@@ -21,7 +21,7 @@ def get_random_text(text_type):
     if text_type == "short":
         paragraphs, max_length = 1, random.randint(5, 25)
     elif text_type == "line":
-        paragraphs, max_length = 1, random.randint(45, 90)
+        paragraphs, max_length = 1, random.randint(35, 60)
     else:  # paragraph
         paragraphs, max_length = 1, random.randint(300, 500)
 
@@ -38,18 +38,19 @@ def get_random_text(text_type):
 
 
 def text_to_image(fileroot, color_type, text):
-    image_width = random.choice([500, 600, 700, 800])
-    image = Image.new("RGB", (image_width, 1600), color=(255, 255, 255))
+    image_width = random.choice([500, 600, 700])
+    # image = Image.new("RGB", (image_width, 1600), color=(255, 255, 255))
+    image = Image.new("RGBA", (image_width, 1600), color=(255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
 
     font_file = random.choice(fonts)
     font_size = random.choice([10, 15, 20, 25, 30])
     if color_type == "grayscale":
         gray_value = random.randint(0, 128)
-        font_color = (gray_value, gray_value, gray_value)
+        font_color = (gray_value, gray_value, gray_value, 255)
     else:
         font_color = (random.randint(0, 128), random.randint(
-            0, 128), random.randint(0, 128))
+            0, 128), random.randint(0, 128), 255)
     # style = random.choice(styles)
     font = ImageFont.truetype(font_file, font_size)
 
@@ -83,7 +84,8 @@ def text_to_image(fileroot, color_type, text):
                 draw.text((0, y), line, fill=font_color, font=font)
                 y += sum(font.getmetrics())
         cropped_image = image.crop((0, 0, x, y))
-        filename = f"{fileroot}{uuid.uuid4()}.jpg"
+        # filename = f"{fileroot}{uuid.uuid4()}.jpg"
+        filename = f"{fileroot}{uuid.uuid4()}.png"
         cropped_image.save(filename)
     except:
         print(f"Failed to download : font is {font_file}")
@@ -91,7 +93,7 @@ def text_to_image(fileroot, color_type, text):
 
 if __name__ == "__main__":
     IMG_ROOT_FOLDER = "dataset/text_image/"
-    IMG_SET_NUM = 1000
+    IMG_SET_NUM = 500
 
     for text_type in text_types:
         for color_type in color_types:
