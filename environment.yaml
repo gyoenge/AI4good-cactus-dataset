@@ -1,5 +1,6 @@
 name: cactus_dataset
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - aiohttp=3.9.3=py311h2bbff1b_0
@@ -25,9 +26,13 @@ dependencies:
   - lerc=3.0=hd77b12b_0
   - libdeflate=1.17=h2bbff1b_1
   - libffi=3.4.4=hd77b12b_0
+  - libiconv=1.16=h2bbff1b_2
   - libpng=1.6.39=h8cc25b3_0
   - libtiff=4.5.1=hd77b12b_0
   - libwebp-base=1.3.2=h2bbff1b_0
+  - libxml2=2.10.4=h0ad7f3c_1
+  - libxslt=1.1.37=h2bbff1b_1
+  - lxml=4.9.3=py311h09808a7_0
   - lz4-c=1.9.4=h2bbff1b_0
   - multidict=6.0.4=py311h2bbff1b_0
   - openjpeg=2.4.0=h4fc8c34_0
@@ -39,6 +44,7 @@ dependencies:
   - pysocks=1.7.1=py311haa95532_0
   - python=3.11.8=he1021f5_0
   - python-dateutil=2.8.2=pyhd3eb1b0_0
+  - python-pptx=0.6.23=pyhd8ed1ab_0
   - python-dotenv=0.21.0=py311haa95532_0
   - requests=2.31.0=py311haa95532_1
   - s3transfer=0.7.0=py311haa95532_0
@@ -54,6 +60,7 @@ dependencies:
   - vs2015_runtime=14.27.29016=h5e58377_2
   - wheel=0.41.2=py311haa95532_0
   - win_inet_pton=1.1.0=py311haa95532_0
+  - xlsxwriter=3.1.1=py311haa95532_0
   - xz=5.4.6=h8cc25b3_0
   - yarl=1.9.3=py311h2bbff1b_0
   - zlib=1.2.13=h8cc25b3_0
