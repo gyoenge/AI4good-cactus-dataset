@@ -23,12 +23,17 @@ class YoloToCoco:
         image_path = self.images_dir / image_file
         image = Image.open(image_path)
         image_width, image_height = image.size
+
+        now_iso = datetime.now().isoformat()
+        now_datetime = datetime.fromisoformat(now_iso)
+        formatted_now = now_datetime.strftime('%Y-%m-%d %H:%M:%S')
+
         self.coco_ann['images'].append({
             'id': image_id,
             'width': int(image_width),
             'height': int(image_height),
             'file_name': image_file,
-            'date_time': str(datetime.now().isoformat())
+            'date_captured': str(formatted_now)
         })
 
         # generate "annotations" list item
@@ -39,13 +44,15 @@ class YoloToCoco:
                     category_id = int(class_id) + 1
                     width = int((x1-x0)*image_width)
                     height = int((y1-y0)*image_height)
-                    x_center = int((x0*image_width) + (width/2))
-                    y_center = int((y0*image_height) + (height/2))
+                    # x_center = int((x0*image_width) + (width/2))
+                    x_0 = int(x0*image_width)
+                    # y_center = int((y0*image_height) + (height/2))
+                    y_0 = int(y0*image_height)
                     self.coco_ann['annotations'].append({
                         'id': self.annotation_id,
                         'image_id': image_id,
                         'category_id': category_id,
-                        'bbox': [x_center, y_center, width, height]
+                        'bbox': [x_0, y_0, width, height]
                     })
                     self.annotation_id += 1
             except:
@@ -113,8 +120,9 @@ def save_coco_bbox_results(images_dir, annotation_path, coco_bbox_result_dir):
         annotations = [
             ann for ann in coco_ann['annotations'] if ann['image_id'] == image_id]
         for ann in annotations:
-            x_center, y_center, width, height = ann['bbox']
-            x0, y0 = x_center - width / 2, y_center - height / 2
+            # x_center, y_center, width, height = ann['bbox']
+            # x0, y0 = x_center - width / 2, y_center - height / 2
+            x0, y0, width, height = ann['bbox']
             x1, y1 = x0 + width, y0 + height
             draw.rectangle([x0, y0, x1, y1], outline="red", width=2)
 
