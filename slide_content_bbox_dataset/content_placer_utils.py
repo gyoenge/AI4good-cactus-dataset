@@ -18,6 +18,7 @@ MAP_CONTENT_DIR = {
     "text_paragraph": config['CONTENT_DIR']['text']['paragraph'],  # list
     "text_line": config['CONTENT_DIR']['text']['line'],            # list
     "text_short": config['CONTENT_DIR']['text']['short'],          # list
+    "table": config['CONTENT_DIR']['table'],
 }
 COCO_CATEGORIES = config['COCO_CATEGORIES']
 
@@ -33,25 +34,28 @@ CONTENT_PLACEMENT_COMBINATION = [
         "grid_placement_combination": [
             # horizontal middle
             {"main_graphic": [[1, 1, 5, 4]],
-                "text_paragraph": [[5, 1, 8, 4]], "text_short": [[1, 4, 7, 6]]},
-            {"main_graphic": [[2, 1, 6, 4]],  "text_short": [[1, 4, 7, 6]]},
-            {"main_graphic": [[3, 1, 7, 4]],  "text_short": [[1, 4, 7, 6]]},
+                "text_paragraph": [[5, 1, 7, 4]], "text_line": [[1, 4, 7, 6]], "text_short": [[2, 0, 6, 1]]},
+            {"main_graphic": [[2, 1, 6, 4]],  "text_line": [
+                [1, 4, 7, 6]], "text_short": [[2, 0, 6, 1]]},
+            {"main_graphic": [[3, 1, 7, 4]],  "text_line": [
+                [1, 4, 7, 6]], "text_short": [[2, 0, 6, 1]]},
             # big
-            {"main_graphic": [[1, 1, 6, 5]],  "text_short": [[1, 4, 7, 6]]},
-            {"main_graphic": [[1, 1, 6, 6]]},
+            {"main_graphic": [[1, 1, 7, 5]],  "text_line": [
+                [1, 4, 7, 6]], "text_short": [[2, 0, 6, 1]]},
+            {"main_graphic": [[1, 1, 7, 6]], "text_short": [[2, 0, 6, 1]]},
             # vertical middle
             {"main_graphic": [[1, 1, 4, 5]],
-                "text_paragraph": [[4, 1, 7, 5]]},
+                "text_paragraph": [[4, 1, 7, 5]], "text_short": [[2, 0, 6, 1]]},
             {"main_graphic": [[1, 1, 4, 5]],
-                "text_paragraph": [[4, 1, 7, 3], [4, 3, 7, 5]]},
+                "text_paragraph": [[4, 1, 8, 3], [4, 3, 7, 5]], "text_short": [[2, 0, 6, 1]]},
             {"main_graphic": [[1, 1, 4, 5]],
-                "text_short": [[4, 1, 7, 2], [4, 2, 7, 3], [4, 3, 7, 4], [4, 4, 7, 5]]},
+                "text_short": [[2, 0, 6, 1], [4, 1, 7, 2], [4, 2, 7, 3], [4, 3, 7, 4], [4, 4, 7, 5]]},
             {"main_graphic": [[4, 1, 7, 5]],
-                "text_paragraph": [[1, 1, 4, 5]]},
+                "text_paragraph": [[1, 1, 4, 5]], "text_short": [[2, 0, 6, 1]]},
             {"main_graphic": [[4, 1, 7, 5]],
-                "text_paragraph": [[1, 1, 4, 3], [1, 3, 4, 5]]},
+                "text_paragraph": [[1, 1, 4, 3], [1, 3, 4, 5]], "text_short": [[2, 0, 6, 1]]},
             {"main_graphic": [[4, 1, 7, 5]],
-                "text_short": [[1, 1, 4, 2], [1, 2, 4, 3], [1, 3, 4, 4], [1, 4, 4, 5]]},
+                "text_short": [[2, 0, 6, 1], [1, 1, 4, 2], [1, 2, 4, 3], [1, 3, 4, 4], [1, 4, 4, 5]]},
         ]
     },
     {
@@ -59,24 +63,24 @@ CONTENT_PLACEMENT_COMBINATION = [
         "description": "2 main graphic, texts",
         "grid_placement_combination": [
             # 1 small 1 middle
-            {"main_graphic": [[1, 1, 4, 3],  [4, 1, 7, 5]],
-                "text_paragraph": [[1, 3, 4, 5]]},
-            {"main_graphic": [[1, 1, 4, 3], [4, 1, 7, 5]],
-                "text_short": [[1, 3, 4, 4], [1, 4, 4, 5]]},
-            {"main_graphic": [[4, 1, 7, 3], [1, 1, 4, 5]],
-                "text_paragraph": [[4, 3, 7, 5]]},
-            {"main_graphic": [[4, 1, 7, 3], [1, 1, 4, 5]],
-                "text_short": [[4, 3, 7, 4], [4, 4, 7, 5]]},
+            {"main_graphic": [[4, 1, 7, 5]], "sub_graphic": [[1, 1, 4, 3]],
+                "text_paragraph": [[1, 3, 4, 5]], "text_short": [[2, 0, 6, 1]]},
+            {"main_graphic": [[4, 1, 7, 5]], "sub_graphic": [[1, 1, 4, 3]],
+                "text_short": [[1, 0, 4, 1], [1, 3, 4, 4], [1, 4, 4, 5]]},
+            {"main_graphic": [[1, 1, 4, 5]], "sub_graphic": [[4, 1, 7, 3]],
+                "text_paragraph": [[4, 3, 7, 5]], "text_short": [[2, 0, 6, 1]]},
+            {"main_graphic": [[1, 1, 4, 5]], "sub_graphic": [[4, 1, 7, 3]],
+                "text_short": [[1, 0, 4, 1], [4, 3, 7, 4], [4, 4, 7, 5]]},
             # 2 middle
             {"main_graphic": [[1, 1, 4, 5], [4, 1, 7, 5]],
-                "text_short": [[1, 5, 7, 6]]},
+                "text_line": [[1, 5, 7, 6]], "text_short": [[1, 0, 4, 1]]},
             # 2 small
-            {"main_graphic": [[1, 1, 4, 3], [4, 1, 7, 3]],
-                "text_paragraph": [[1, 3, 4, 5], [4, 3, 7, 5]]},
-            {"main_graphic": [[1, 1, 4, 3], [4, 1, 7, 3]],
-                "text_short": [[1, 3, 4, 4], [1, 4, 4, 5], [4, 3, 7, 4], [4, 4, 7, 5]]},
-            {"main_graphic": [[1, 1, 4, 3], [4, 1, 7, 3]],
-                "text_short": [[1, 3, 4, 4], [1, 4, 4, 5], [1, 5, 4, 6], [4, 3, 7, 4], [4, 4, 7, 5], [4, 5, 7, 6]]},
+            {"sub_graphic": [[1, 1, 4, 3], [4, 1, 7, 3]],
+                "text_paragraph": [[1, 3, 4, 5], [4, 3, 7, 5]], "text_short": [[2, 0, 6, 1]]},
+            {"sub_graphic": [[1, 1, 4, 3], [4, 1, 7, 3]],
+                "text_short": [[1, 0, 4, 1], [1, 3, 4, 4], [1, 4, 4, 5], [4, 3, 7, 4], [4, 4, 7, 5]]},
+            {"sub_graphic": [[1, 1, 4, 3], [4, 1, 7, 3]],
+                "text_short": [[1, 0, 4, 1], [1, 3, 4, 4], [1, 4, 4, 5], [1, 5, 4, 6], [4, 3, 7, 4], [4, 4, 7, 5], [4, 5, 7, 6]]},
         ]
     },
     # {
@@ -112,7 +116,7 @@ CONTENT_PLACEMENT_COMBINATION = [
     # }
 ]
 MAP_CONTENT_TYPE = {
-    "main_graphic": ["diagram", "natural_image"],
+    "main_graphic": ["diagram", "natural_image", "table"],
     "sub_graphic": ["natural_image"],
     "text_paragraph": ["text_paragraph"],
     "text_line": ["text_line"],
@@ -141,6 +145,7 @@ CONTENT_JPGS_PATH = {
     "text_paragraph": find_imgs_in_deepest(random.choice(MAP_CONTENT_DIR['text_paragraph'])),
     "text_line": find_imgs_in_deepest(random.choice(MAP_CONTENT_DIR['text_line'])),
     "text_short": find_imgs_in_deepest(random.choice(MAP_CONTENT_DIR['text_short'])),
+    "table": find_imgs_in_deepest(random.choice(MAP_CONTENT_DIR['table'])),
 }
 
 # CONTENT_JPGS_PATH에서 각 content의 이미지 갯수를 출력
@@ -208,6 +213,7 @@ def _get_yolo_class_id(coco_categories, content_type_key):
         "text_paragraph": "text",
         "text_line": "text",
         "text_short": "text",
+        "table": "table"
     }
     class_id_yolo = _get_id_by_name(
         coco_categories, MAP_CATEGORIES[content_type_key])-1
@@ -257,17 +263,23 @@ def place_content_in_frame(slide, frame_grid, content_image_path):
         original_width, original_height = img.size
         image_ratio = original_width / original_height
 
-    if image_ratio >= frame_ratio:
-        # frame 가로 길이에 맞게, w/h 설정
-        image_width_in = frame_width_in
-        image_height_in = image_width_in*(original_height/original_width)
+    if (original_width < frame_width_in) and (original_height < frame_height_in):
+        image_width_in = pixels_to_inches(original_width)-0.5
+        image_height_in = pixels_to_inches(original_height)-0.5
     else:
-        # frame 세로 길이에 맞게, w/h 설정
-        image_height_in = frame_height_in
-        image_width_in = image_height_in*image_ratio
+        if image_ratio >= frame_ratio:
+            # frame 가로 길이에 맞게, w/h 설정
+            image_width_in = frame_width_in
+            image_height_in = image_width_in*(original_height/original_width)
+        else:
+            # frame 세로 길이에 맞게, w/h 설정
+            image_height_in = frame_height_in
+            image_width_in = image_height_in*image_ratio
+        # padding 추가 (optional)
+        image_height_in, image_width_in = image_height_in - 0.1, image_width_in-0.2
     # left/top 설정
     image_left_in = frame_xcenter_in-(image_width_in/2)
-    image_top_in = frame_ycenter_in-(image_height_in/2)
+    image_top_in = frame_ycenter_in-(image_height_in/2)+0.5
 
     # slide에 content_image 배치
     _ = slide.shapes.add_picture(content_image_path,

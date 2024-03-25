@@ -127,7 +127,7 @@ if __name__ == "__main__":
     for dir in [IMAGES_DIR, YOLO_LABELS_DIR, YOLO_RESULTS_DIR, COCO_RESULTS_DIR]:
         delete_files_in_dir(dir)
 
-    IMG_SET_NUM = 5
+    IMG_SET_NUM = 800
     for i in range(IMG_SET_NUM):
         print(i)
         datasetGenerator = SlideContentBboxDataGenerator()

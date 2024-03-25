@@ -3,7 +3,7 @@
     { "id": 1, "name": "text" },
     { "id": 2, "name": "natural_image" },
     { "id": 3, "name": "diagram" },
-    { "id": 4, "name": "ppt_object" }
+    { "id": 4, "name": "table" }
   ],
   "CONTENT_DIR": {
     "text": {
@@ -22,7 +22,8 @@
       ]
     },
     "natural_image": ["../dataset/natural_image"],
-    "diagram": ["../dataset/diagram_clipart"]
+    "diagram": ["../dataset/diagram_clipart"],
+    "table": ["../dataset/table_image"]
   },
   "SLIDE_VARIANTS": {
     "SLIDE_SIZE_PX": [1280, 960],
