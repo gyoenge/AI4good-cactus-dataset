@@ -1,16 +1,18 @@
-# AI4Good Hackathon Dataset 
+# AI4Good Hackathon Project - Dataset 
+## PPT Object Detection Dataset Code 
 
-- 2024 Mar. AI4Good Hackathon 
-- 대회 주제 : UN SDGs 주제에 맞는 AI 서비스 개발 해커톤 
-- **Cactus팀 아이디어** : 시각장애인의 그래픽 접근성을 높이는 학습 보조 도구. **PPT 그래픽 강의 자료에서 text, figure 등의 요소를 점자 패드 형식으로 일대일 대응시켜 변환해주는 시스템**.
-- **AI 활용 : PPT에서 document 요소 객체탐지 추출** 
-- AI Dataset 수집을 위한 레포입니다 
+- Event: AI4Good Hackathon (March 2023)
+- Theme: An AWS AI service development hackathon aligned with the UN Sustainable Development Goals (SDGs). 
+- Team Idea: An assistive learning tool that **improves graphic accessibility for the visually impaired by converting elements (text, figures) from PowerPoint slides into a Braille pad-compatible format**. 
+- Team Size: 5 members (1 Project Manager, 1 Frontend, 1 Backend, 2 AI)
+- My Role: Implemented the **PPT Objetect detection features, utilizing AWS Custom Labels & Rekognition Service**.
 
-### description
+### Description
 
-- text_image_eng.py : 영어 text 요소 이미지를 생성하여 수집하기 위한 코드.
-- natural_image_fast.py : google에서 image 요소 이미지를 크롤링하여 수집하기 위한 코드. 
-- diagram_gcrawler.py : google에서 diagram 요소 이미지를 크롤링하여 수집하기 위한 코드. 
-- ppt_object_synthesizer.py : PPT 도형 요소들을 PPT에 배치하기 위한 코드.
-- slide_content_bbox_dataset/*.py : 각 요소 이미지들을 PPT에 무작위로 배치하여 최종 데이터셋을 구축하기 위한 코드.
+This repository is dedicated to **collecting and preprocessing the dataset** for training our AI model.
 
+- `text_image_eng.py`: A script to generate and collect image samples of English text elements.
+- `natural_image_fast.py`: A script to crawl and collect natural image elements from Google Images.
+- `diagram_gcrawler.py`: A script to crawl and collect diagram elements from Google Images.
+- `ppt_object_synthesizer.py`: A script for arranging various shape elements within a PowerPoint (PPT) slide.
+- `slide_content_bbox_dataset/*.py`: A collection of scripts to build the final dataset by randomly placing the collected element images onto PPT slides.
