@@ -16,3 +16,17 @@ This repository is dedicated to **collecting and preprocessing the dataset** for
 - `diagram_gcrawler.py`: A script to crawl and collect diagram elements from Google Images.
 - `ppt_object_synthesizer.py`: A script for arranging various shape elements within a PowerPoint (PPT) slide.
 - `slide_content_bbox_dataset/*.py`: A collection of scripts to build the final dataset by randomly placing the collected element images onto PPT slides.
+
+### Preview
+
+- Each objects:
+<p align="center">
+<img width="50%" alt="cactus_dataset_preview" src="https://github.com/user-attachments/assets/7bab9b35-8802-41bc-ae80-5a67e50bc79d" />
+</p>  
+
+- Synthesized PPT image (simgle one): 
+<p align="center">
+<img width="50%" alt="image" src="https://github.com/user-attachments/assets/696a3bed-9292-4a61-a5c1-ed7264d338e0" />
+</p>
+
+- Our approach is limited to basic combinations of PowerPoint elements and does not support any overlap between them within our grid system. 
